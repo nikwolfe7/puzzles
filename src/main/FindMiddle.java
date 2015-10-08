@@ -2,7 +2,11 @@ package main;
 
 public class FindMiddle {
 	
-	public FindMiddle() {
+  public static void main(String[] args) {
+    new FindMiddle();
+  }
+  
+  public FindMiddle() {
 		LinkedList list = new LinkedList();
 		list.add(1);
 		list.add(3);
@@ -16,10 +20,6 @@ public class FindMiddle {
 		list.add(0);
 		list.add(100);
 		System.out.println("Middle: " + getMiddle(list).getVal());
-	}
-	
-	public static void main(String[] args) {
-		new FindMiddle();
 	}
 	
 	public Node getMiddle(LinkedList list) {
