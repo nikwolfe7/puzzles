@@ -40,24 +40,22 @@ public class FindCycle {
   }
   
   public class NodeFlag extends Node {
-    public NodeFlag(String s) {
-      super(s);
+    public NodeFlag(Node s) {
+      super(s.value);
     }
   }
 
   private boolean hasCycles(LinkedList list) {
-    Node ptr = list.head;
-    while(ptr.next != null) {
-      NodeFlag f = new NodeFlag(ptr.value);
-      if(ptr instanceof NodeFlag)
-        return true;
-      else
-        f.prev = ptr.prev;
-        f.next = ptr.next;
-        ptr.prev.next = f;
-        ptr.next.prev = f;
-        ptr = ptr.next;
-    }
+    Node slow = list.head;
+    Node fast = list.head;
+    while(slow.next != null && fast.next != null) {
+    	slow = slow.next;
+    	fast = fast.next.next;
+    	if(fast == null)
+    		return false;
+    	if(slow == fast) 
+    		return true;
+    } 
     return false;
   }
   
