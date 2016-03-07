@@ -3,30 +3,39 @@ package main;
 public class Palindrome {
 
 	public static void main(String[] args) {
-		int num = 123454321;
-		if(isPalindrome(num)) 
+		checkIfPalindrome(1);
+		checkIfPalindrome(11);
+		checkIfPalindrome(121);
+		checkIfPalindrome(1221);
+		checkIfPalindrome(12121);
+		checkIfPalindrome(1121);
+	}
+	
+	public static void checkIfPalindrome(int num) {
+		if(isPalindrome(num))  {
 			System.out.println(num + " is a palindrome!");
-		else 
+		} else { 
 			System.out.println(num + " is NOT a palindrome!");
-		
+		}
 	}
 	
 	public static boolean isPalindrome(int num) {
-		char[] arr = ("" + num).toCharArray();
-		char[] rev = new char[arr.length];
-		rev = reversePalindrome(arr, rev, 0, rev.length-1);
-		String a, b;
-		a = new String(arr);
-		b = new String(rev);
-		return a.equals(b);
+		String s = "" + num;
+		String rev = new String(reverse(s.toCharArray()));
+		return s.equals(rev);
 	}
 	
-	public static char[] reversePalindrome(char[] arr, char[] rev, int i, int j) {
-		if(j >= 0) {
-			rev[j] = arr[i];
-			reversePalindrome(arr, rev, (i+1), (j-1));
-		} 
-		return rev;
+	public static char[] reverse(char[] arr) {
+		int i, j;
+		for(i = 0, j = arr.length-1; i < arr.length / 2; i++, j--) {
+			swap(arr, i, j);
+		}
+		return arr;
 	}
 
+	private static void swap(char[] arr, int i, int j) {
+		char c = arr[i];
+		arr[i] = arr[j];
+		arr[j] = c; 
+	}
 }

@@ -19,7 +19,7 @@ public class ReverseString {
   
   public static String reverseRecursive(String str) {
     char[] arr = str.toCharArray();
-    char[] rev = new char[arr.length];
+    char[] rev = new char[arr.length]; 
     return reverseRecHelper(0, arr.length-1, arr, rev);
   }
   
