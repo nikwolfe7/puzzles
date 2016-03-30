@@ -2,23 +2,6 @@ package main;
 
 public class Palindrome {
 
-	public static void main(String[] args) {
-		checkIfPalindrome(1);
-		checkIfPalindrome(11);
-		checkIfPalindrome(121);
-		checkIfPalindrome(1221);
-		checkIfPalindrome(12121);
-		checkIfPalindrome(1121);
-	}
-	
-	public static void checkIfPalindrome(int num) {
-		if(isPalindrome(num))  {
-			System.out.println(num + " is a palindrome!");
-		} else { 
-			System.out.println(num + " is NOT a palindrome!");
-		}
-	}
-	
 	public static boolean isPalindrome(int num) {
 		String s = "" + num;
 		String rev = new String(reverse(s.toCharArray()));
